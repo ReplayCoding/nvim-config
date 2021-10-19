@@ -75,6 +75,8 @@
   (use {1 :nvim-treesitter/nvim-treesitter
         :run ":TSUpdate"
         :config (. (require :plugs.treesitter) :config)})
+
+  (use :ggandor/lightspeed.nvim)
 )
 
 (let [packer (require :packer)]
