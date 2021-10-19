@@ -1,6 +1,6 @@
 (fn setup_packages [use]
   (use :wbthomason/packer.nvim)
-  (use :rktjmp/hotpot.nvim)
+  (use :lewis6991/impatient.nvim)
 
   (use {1 :vimwiki/vimwiki
         :setup (fn [] (set vim.g.vimwiki_global_ext 0))})
