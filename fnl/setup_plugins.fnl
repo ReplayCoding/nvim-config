@@ -79,8 +79,4 @@
 
 (let [packer (require :packer)]
   (packer.reset)
-  (packer.init {
-    :display {
-      :open_fn (fn []
-        ((. (require :packer.util) :float) {:border :shadow}))}})
   (setup_packages packer.use))

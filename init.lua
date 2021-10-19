@@ -8,4 +8,4 @@ end
 require('hotpot')
 
 require('settings')
-require'packer_plugins'
+require'lazy_packer'
