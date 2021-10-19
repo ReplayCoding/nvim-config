@@ -14,37 +14,29 @@
     (buf_set_normal_keymap "<leader>lT" "<cmd>Telescope lsp_workspace_diagnostics<CR>")
   )
   (let [
-      nvim_lsp (require :lspconfig)
-      servers [:gopls :clangd :rust_analyzer]
-      capabilities ((. (require :cmp_nvim_lsp) :update_capabilities) (vim.lsp.protocol.make_client_capabilities))
-    ]
-    (each [_ lsp (ipairs servers)]
-      ((. (. nvim_lsp lsp) :setup) {
+      servers [:gopls :clangd :rust_analyzer :sumneko_lua]
+      capabilities ((. (require :cmp_nvim_lsp) :update_capabilities) (vim.lsp.protocol.make_client_capabilities))]
+    (fn setup_lua [setup on_attach]
+      (var runtime_path (vim.split package.path ";"))
+      (table.insert runtime_path "lua/?.lua")
+      (table.insert runtime_path "lua/?/init.lua")
+      (setup {
         : on_attach
-        : capabilities
-        :flags {
-          :debounce_text_changes 150
-        }
-      })
-    )
-  
-    ;; I don't know if there is a better way to define this :(
-    (var runtime_path (vim.split package.path ";"))
-    (table.insert runtime_path "lua/?.lua")
-    (table.insert runtime_path "lua/?/init.lua")
-    (nvim_lsp.sumneko_lua.setup {
-      : on_attach
-      :cmd ["lua-language-server"]
-      :settings { :Lua {
-        :runtime {:version "LuaJIT" :path runtime_path}
-        :diagnostics {:globals ["vim"]}
-        :workspace {:library (vim.api.nvim_get_runtime_file "" true)}
-        :telemetry {:enable false}
-      }}
-    })
-  )
-)
+        :cmd ["lua-language-server"]
+        :settings {:Lua {
+          :runtime {:version "LuaJIT" :path runtime_path}
+          :diagnostics {:globals ["vim"]}
+          :workspace {:library (vim.api.nvim_get_runtime_file "" true)}
+          :telemetry {:enable false}}}}))
 
-{
-  : config
-}
+    (each [_ lsp (ipairs servers)]
+      (local setup (. (. (require :lspconfig) lsp) :setup))
+      (if (= lsp :sumneko_lua)
+        (setup_lua setup on_attach)
+        (setup {
+          : on_attach
+          : capabilities
+          :flags {
+            :debounce_text_changes 150}})))))
+
+{: config}
