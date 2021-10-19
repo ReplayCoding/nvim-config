@@ -20,4 +20,5 @@ end
 require('hotpot')
 
 require('disable_builtins')
-require('setup_packer')
+-- require('setup_packer')
+require'packer_plugins'
