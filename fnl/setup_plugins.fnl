@@ -78,7 +78,6 @@
         :config (. (require :plugs.telescope) :config)})
 
   (use {1 :nvim-treesitter/nvim-treesitter
-        :event :VimEnter
         :run ":TSUpdate"
         :config (. (require :plugs.treesitter) :config)})
 
