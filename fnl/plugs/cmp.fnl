@@ -17,6 +17,8 @@
     }
     :mapping {
       :<CR> (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Replace :select true})
+      :<C-e> (cmp.mapping.close)
+      :<C-Space> (cmp.mapping.complete)
     }
     :sources [
       {:name :nvim_lsp }
