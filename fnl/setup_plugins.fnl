@@ -75,10 +75,11 @@
   (use {1 :neovim/nvim-lspconfig
         :event :VimEnter
         :config (. (require :plugs.lspconfig) :config)})
-
+  (use {1 "nvim-telescope/telescope-fzf-native.nvim" :run :make})
   (use {1 :nvim-telescope/telescope.nvim
         :cmd :Telescope
         :module :telescope
+        :after "telescope-fzf-native.nvim"
         :requires [:nvim-lua/plenary.nvim]
         :setup (. (require :plugs.telescope) :setup)
         :config (. (require :plugs.telescope) :config)})
