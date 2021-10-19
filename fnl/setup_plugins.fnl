@@ -70,7 +70,8 @@
   (use {1 :kyazdani42/nvim-tree.lua
         :cmd "NvimTreeToggle"
         :requires :kyazdani42/nvim-web-devicons
-        :setup (. (require :plugs.nvim-tree) :setup)})
+        :setup (. (require :plugs.nvim-tree) :setup)
+        :config (. (require :plugs.nvim-tree) :config)})
 
   (use {1 :neovim/nvim-lspconfig
         :event :VimEnter

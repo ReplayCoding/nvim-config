@@ -1,7 +1,8 @@
-(fn setup []
-  (set vim.g.nvim_tree_auto_close 1)
-  (set vim.g.nvim_tree_indent_markers 1)
-  (vim.api.nvim_set_keymap "n" "<leader>f" "<cmd>NvimTreeToggle<CR>" {:silent true})
-)
+(fn setup [] (vim.api.nvim_set_keymap "n" "<leader>f" "<cmd>NvimTreeToggle<CR>" {:silent true}))
 
-{:setup setup}
+(fn config []
+  ((. (require :nvim-tree) :setup) {
+    :auto_close true
+    :indent_markers true}))
+
+{: setup : config}
