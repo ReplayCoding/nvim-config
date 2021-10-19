@@ -8,5 +8,4 @@ end
 require('hotpot')
 
 require('settings')
--- require('setup_packer')
 require'packer_plugins'
