@@ -42,8 +42,7 @@
   (use {1 :lewis6991/gitsigns.nvim
         :event :BufRead
         :requires [:nvim-lua/plenary.nvim]
-        :config (fn []
-                ((. (require :gitsigns) :setup)))})
+        :config (. (require :plugs.gitsigns) :config)})
 
   (use {1 :nvim-lua/lsp-status.nvim
         :module :lsp-status
