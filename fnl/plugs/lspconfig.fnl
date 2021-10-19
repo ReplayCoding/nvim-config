@@ -12,6 +12,7 @@
     (buf_set_normal_keymap "<leader>ld" "<cmd>Telescope lsp_definitions<CR>")
     (buf_set_normal_keymap "<leader>lt" "<cmd>Telescope lsp_document_diagnostics<CR>")
     (buf_set_normal_keymap "<leader>lT" "<cmd>Telescope lsp_workspace_diagnostics<CR>")
+    (buf_set_normal_keymap "<leader>lf" "<cmd>Telescope lsp_code_actions<CR>")
   )
   (let [
       servers [:gopls :clangd :rust_analyzer :sumneko_lua]
