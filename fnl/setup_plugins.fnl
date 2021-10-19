@@ -21,9 +21,7 @@
         :config (. (require :plugs.cmp) :config)})
 
   (use {1 :akinsho/toggleterm.nvim
-        :keys [
-              [:n :<c-\>]
-              [:n :<leader>g]]
+        :keys [[:n :<leader>g]]
         :setup (. (require :plugs.toggleterm) :setup)
         :config (. (require :plugs.toggleterm) :config)})
 
@@ -48,14 +46,19 @@
                 ((. (require :gitsigns) :setup)))})
 
   (use {1 :nvim-lua/lsp-status.nvim
+        :module :lsp-status
         :config (. (require :plugs.lsp-status) :config)})
+
+  (use {1 :nvim-lua/plenary.nvim
+          :module :plenary})
 
   (use {1 :kyazdani42/nvim-web-devicons
           :module :nvim-web-devicons})
 
   (use {1 :hoob3rt/lualine.nvim
+        :event :UIEnter
         :requires :kyazdani42/nvim-web-devicons
-        :after [:tokyonight.nvim :lsp-status.nvim]
+        :after [:tokyonight.nvim]
         :config (. (require :plugs.lualine) :config)})
 
   (use {1 :kyazdani42/nvim-tree.lua
@@ -65,11 +68,12 @@
 
   (use {1 :neovim/nvim-lspconfig
         :event :VimEnter
-        :after [:lsp-status.nvim :cmp-nvim-lsp]
+        :after [:cmp-nvim-lsp]
         :config (. (require :plugs.lspconfig) :config)})
 
   (use {1 :nvim-telescope/telescope.nvim
         :cmd :Telescope
+        :module :telescope
         :requires [:nvim-lua/plenary.nvim]
         :setup (. (require :plugs.telescope) :setup)
         :config (. (require :plugs.telescope) :config)})
@@ -102,8 +106,7 @@
                  [:x "t"]
                  [:x "T"]
                  [:o "t"]
-                 [:o "T"]]})
-)
+                 [:o "T"]]}))
 
 (let [packer (require :packer)]
   (packer.reset)
