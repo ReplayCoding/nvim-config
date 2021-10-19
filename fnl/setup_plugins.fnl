@@ -75,6 +75,7 @@
   (use {1 :neovim/nvim-lspconfig
         :event :VimEnter
         :config (. (require :plugs.lspconfig) :config)})
+
   (use {1 "nvim-telescope/telescope-fzf-native.nvim" :run :make})
   (use {1 :nvim-telescope/telescope.nvim
         :cmd :Telescope
