@@ -16,7 +16,7 @@
                   {1 :hrsh7th/cmp-vsnip :after :nvim-cmp}
                   {1 :hrsh7th/cmp-buffer :after :nvim-cmp}
                   {1 :hrsh7th/cmp-path :after :nvim-cmp}
-                  [:hrsh7th/cmp-nvim-lsp]
+                  {1 :hrsh7th/cmp-nvim-lsp :module :cmp_nvim_lsp}
                   [:rafamadriz/friendly-snippets]]
         :config (. (require :plugs.cmp) :config)})
 
@@ -68,7 +68,6 @@
 
   (use {1 :neovim/nvim-lspconfig
         :event :VimEnter
-        :after [:cmp-nvim-lsp]
         :config (. (require :plugs.lspconfig) :config)})
 
   (use {1 :nvim-telescope/telescope.nvim
