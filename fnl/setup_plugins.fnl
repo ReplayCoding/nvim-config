@@ -53,6 +53,9 @@
   (use {1 :nvim-lua/lsp-status.nvim
         :config (. (require :plugs.lsp-status) :config)})
 
+  (use {1 :kyazdani42/nvim-web-devicons
+          :module :nvim-web-devicons})
+
   (use {1 :hoob3rt/lualine.nvim
         :requires :kyazdani42/nvim-web-devicons
         :after [:tokyonight.nvim :lsp-status.nvim]
@@ -62,7 +65,9 @@
         :cmd "NvimTreeToggle"
         :requires :kyazdani42/nvim-web-devicons
         :setup (. (require :plugs.nvim-tree) :setup)})
+
   (use {1 :neovim/nvim-lspconfig
+        :event :VimEnter
         :after [:lsp-status.nvim :cmp-nvim-lsp]
         :config (. (require :plugs.lspconfig) :config)})
 
@@ -73,10 +78,34 @@
         :config (. (require :plugs.telescope) :config)})
 
   (use {1 :nvim-treesitter/nvim-treesitter
+        :event :VimEnter
         :run ":TSUpdate"
         :config (. (require :plugs.treesitter) :config)})
 
-  (use :ggandor/lightspeed.nvim)
+  (use {1 :ggandor/lightspeed.nvim
+          :keys [[:n "s"]
+                 [:n "S"]
+                 [:x "s"]
+                 [:x "S"]
+                 [:o "z"]
+                 [:o "Z"]
+
+                 [:o "x"]
+                 [:o "X"]
+
+                 [:n "f"]
+                 [:n "F"]
+                 [:x "f"]
+                 [:x "F"]
+                 [:o "f"]
+                 [:o "F"]
+
+                 [:n "t"]
+                 [:n "T"]
+                 [:x "t"]
+                 [:x "T"]
+                 [:o "t"]
+                 [:o "T"]]})
 )
 
 (let [packer (require :packer)]
