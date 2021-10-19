@@ -1,5 +1,4 @@
 (fn setup []
-  (set vim.g.nvim_tree_auto_open 1)
   (set vim.g.nvim_tree_auto_close 1)
   (set vim.g.nvim_tree_tab_open 1)
   (set vim.g.nvim_tree_update_cwd 1)
