@@ -8,7 +8,7 @@
     }
     :sections {
       :lualine_a ["mode"]
-      :lualine_b ["branch" {1 "filename" :file_status true :path 1} ]
+      :lualine_b [{1 "filename" :file_status true :path 1}]
       :lualine_c [(. (require :lsp-status) :status)]
 
       :lualine_x [{1 "diagnostics" :sources ["nvim_lsp"]}]
