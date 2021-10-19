@@ -9,10 +9,17 @@
                   :line_mapping :<leader>cc
                   :operator_mapping :<leader>c}))})
 
+  (use {1 :hrsh7th/vim-vsnip
+        :after :nvim-cmp
+        :setup (fn []
+                (vim.api.nvim_set_keymap "i" "<C-Tab>"   "vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<C-Tab>'"   {:expr true})
+                (vim.api.nvim_set_keymap "s" "<C-Tab>"   "vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<C-Tab>'"   {:expr true})
+                (vim.api.nvim_set_keymap "i" "<S-Tab>"   "vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'" {:expr true})
+                (vim.api.nvim_set_keymap "s" "<S-Tab>"   "vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'" {:expr true}))})
+
   (use {1 :hrsh7th/nvim-cmp
         :event :InsertEnter
         :requires [
-                  {1 :hrsh7th/vim-vsnip :after :nvim-cmp}
                   {1 :hrsh7th/cmp-vsnip :after :nvim-cmp}
                   {1 :hrsh7th/cmp-buffer :after :nvim-cmp}
                   {1 :hrsh7th/cmp-path :after :nvim-cmp}
