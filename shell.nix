@@ -1,1 +1,7 @@
-{ pkgs ? import <nixpkgs> {} }: pkgs.mkShell { nativeBuildInputs = with pkgs; [ gnumake ];}
+{ sources ? import nix/sources.nix {} }:
+
+let nixpkgs = import sources.nixpkgs {};
+in
+nixpkgs.mkShell {
+  packages = with nixpkgs; [gnumake fennel fnlfmt];
+}
