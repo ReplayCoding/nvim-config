@@ -72,7 +72,6 @@
         :setup (. (require :plugs.telescope) :setup)
         :config (. (require :plugs.telescope) :config)})
 
-  (use {1 :p00f/nvim-ts-rainbow :after :nvim-treesitter})
   (use {1 :nvim-treesitter/nvim-treesitter
         :run ":TSUpdate"
         :config (. (require :plugs.treesitter) :config)})
