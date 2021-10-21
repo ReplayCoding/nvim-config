@@ -3,12 +3,9 @@ out_files = $(src_files:fnl/%.fnl=lua/%.lua)
 
 compile: $(out_files)
 
-lua/%.lua: fnl/%.fnl lua/
+lua/%.lua: fnl/%.fnl
 	mkdir -p "$(@D)"
 	fennel --compile $< > $@
-
-lua/:
-	mkdir -p lua
 
 clean:
 	rm -rf lua
