@@ -61,7 +61,7 @@
   (use {1 :kyazdani42/nvim-web-devicons
           :module :nvim-web-devicons})
 
-  (use {1 :hoob3rt/lualine.nvim
+  (use {1 :nvim-lualine/lualine.nvim
         :event :UIEnter
         :requires :kyazdani42/nvim-web-devicons
         :after [:tokyonight.nvim]
