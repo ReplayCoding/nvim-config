@@ -1,6 +1,5 @@
 (fn setup_packages [use]
   (use :wbthomason/packer.nvim)
-  (use :lewis6991/impatient.nvim)
 
   (use {1 :terrortylor/nvim-comment
         :keys [:<leader>c]
